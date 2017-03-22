@@ -2,18 +2,86 @@
 <html xml:lang="en"; lang="en">
   <head>
     <script src="https://github.com/jquery/jquery-ui.git">
-      function show(){
-if(document.layers) document.layers['mydiv'].visibility="show";
-if(document.getElementById) document.getElementById("mydiv").style.visibility="visible";
-if(document.all) document.all.mydiv.style.visibility="visible";
-}
+var FullDeck =  ["01r","02r","03r","04r","05r","06r","07r","08r","09r","10r","11r","12r","13r","01w","02w","03w","04w","05w","06w","07w","08w","09w","10w","11w","12w","13w","01m","02m","03m","04m","05m","06m","07m","08m","09m","10m","11m","12m","13m","01l","02l","03l","04l","05l","06l","07l","08l","09l","10l","11l","12l","13l"];
+var Stack = [];
+var Action =[];
+$(function hide() {
+    $( "#startbuttons" ).click(function() {
+        $( "#togglee" ).toggle();
+});});
+$(function playerOne(){
+$("#OnePlayer").click(function(){
+$("#showme").toggle();
+});});
 
-function hide(){
-if(document.layers) document.layers['mydiv'].visibility="hide";
-if(document.getElementById) document.getElementById("mydiv").style.visibility="hidden";
-if(document.all) document.all.mydiv.style.visibility="hidden";
-}
-      
+$(function gamemode(){
+$("#startgame").click(function(){
+$("#firstbutton").toggle();
+$("#togglee").toggle();
+$("#showme").toggle();
+$("#draw").toggle();
+$("#play").toggle();
+$("#Win").toggle();
+});});
+var Draw = FullDeck.splice(0,52);
+$(document).ready(function() {
+  $("#showme").click(function() {
+    $.fn.Shuffle();
+  });
+$(function Shuffle(FullDeck){
+var currentIndex = FullDeck.length, temporaryValue, randomIndex;
+while (0!== currentIndex){
+randomIndex= Math.floor(Math.random()*currentIndex);
+currentIndex-=1;
+temporaryValue =FullDeck[currentIndex];
+FullDeck[currentIndex] = FullDeck[randomIndex];
+FullDeck[randomIndex] = temporaryValue;}
+return FullDeck;});
+});
+$(function banana(){
+$("#showme").click(function(){
+$("#Win").toggle();
+});});
+$(function WinCondition(){
+$("#Win").click(function(){
+if(Hand1.length == 0){
+alert("You win.");}
+else{}
+});
+});
+var count1 = false;
+var Hand1=[];
+var Hand2=[];
+
+$(function PlayerOneDeal(){ 
+  Hand1 = Draw.splice(0,5);
+});
+$(function PlayerOneTurn(){
+$("#draw").click(function(){
+Hand1=Draw.shift();
+     var drawcard= Draw.shift();
+});
+$("#play").click(function(){
+ var foundselection= false;
+do{
+      alert("Choose which card to play.");
+      var playcard= prompt(Hand1);
+for (var s=0; s<Hand1.length; s++) {
+  if (Hand1[s] === playcard) {
+    Action.push(Hand1[s]);
+    foundselection = true;
+  } 
+} 
+  if(foundselection==false){
+  alert("Invalid selection.");}
+}while(foundselection==false);
+for (var s=Hand1.length; s>=0; s--) {
+ if(Hand1[s] === playcard) {
+    Hand1.splice(s, 1);
+alert("End of turn.");
+
+  } else {}}});});
+}   
       
     </script>
     <meta charset="UTF-8">
