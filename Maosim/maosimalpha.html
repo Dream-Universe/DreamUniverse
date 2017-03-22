@@ -25,12 +25,7 @@ $("#draw").toggle();
 $("#play").toggle();
 $("#Win").toggle();
 });});
-var Draw = FullDeck.splice(0,52);
-$(document).ready(function() {
-  $("#showme").click(function() {
-    $.fn.Shuffle();
-  });
-$(function Shuffle(FullDeck){
+      $(function Shuffle(FullDeck){
 var currentIndex = FullDeck.length, temporaryValue, randomIndex;
 while (0!== currentIndex){
 randomIndex= Math.floor(Math.random()*currentIndex);
@@ -39,6 +34,11 @@ temporaryValue =FullDeck[currentIndex];
 FullDeck[currentIndex] = FullDeck[randomIndex];
 FullDeck[randomIndex] = temporaryValue;}
 return FullDeck;});
+var Draw = FullDeck.splice(0,52);
+$(document).ready(function() {
+  $("#showme").click(function() {
+    $.fn.Shuffle();
+  });
 });
 $(function banana(){
 $("#showme").click(function(){
